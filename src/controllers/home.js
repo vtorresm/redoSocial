@@ -1,7 +1,10 @@
 const ctrl = {};
 
+const { Image } = require('../models');
+
 ctrl.index = (req, res) => {
-    res.render('index');
+    const images = await Image.find().sort({timestamp: -1});
+    res.render('index', {images});
 };
 
 module.exports = ctrl;
