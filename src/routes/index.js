@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+// Controllers
 const home = require('../controllers/home');
 const image = require('../controllers/image');
 
@@ -11,8 +12,7 @@ module.exports = app => {
   router.post('/images', image.create);
   router.post('/images/:image_id/like', image.like);
   router.post('/images/:image_id/comment', image.comment);
-  router.post('/images/:image_id', image.remove);
-
+  router.delete('/images/:image_id', image.remove);
 
   app.use(router);
 
